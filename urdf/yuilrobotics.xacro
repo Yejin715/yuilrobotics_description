@@ -25,7 +25,7 @@
   </collision>
 </link>
 
-<link name="Link_1_1">
+<link name="Link_1">
   <inertial>
     <origin xyz="0.06317466133237605 0.035013511219838034 0.13725728484514843" rpy="0 0 0"/>
     <mass value="111.66153088402919"/>
@@ -34,19 +34,19 @@
   <visual>
     <origin xyz="-0.0 -0.0 -0.235" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="red"/>
   </visual>
   <collision>
     <origin xyz="-0.0 -0.0 -0.235" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
 
-<link name="Link_2_1">
+<link name="Link_2">
   <inertial>
     <origin xyz="-0.01094377597300386 -0.07863714398543364 0.226439676818169" rpy="0 0 0"/>
     <mass value="59.04937236680944"/>
@@ -55,19 +55,19 @@
   <visual>
     <origin xyz="-0.16 0.0769 -0.47" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_2_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_2.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="green"/>
   </visual>
   <collision>
     <origin xyz="-0.16 0.0769 -0.47" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_2_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_2.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
 
-<link name="Link_3_1">
+<link name="Link_3">
   <inertial>
     <origin xyz="0.05496043944024606 0.10419544747934753 0.058371524809330166" rpy="0 0 0"/>
     <mass value="64.002981497043"/>
@@ -76,19 +76,19 @@
   <visual>
     <origin xyz="-0.16 0.1064 -1.23" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_3_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_3.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="blue"/>
   </visual>
   <collision>
     <origin xyz="-0.16 0.1064 -1.23" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_3_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_3.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
 
-<link name="Link_4_1">
+<link name="Link_4">
   <inertial>
     <origin xyz="0.26575828790948886 0.0012955340430784621 0.0009360053461771045" rpy="0 0 0"/>
     <mass value="47.53442539952465"/>
@@ -97,19 +97,19 @@
   <visual>
     <origin xyz="-0.4605 -0.0 -1.43" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_4_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_4.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="yellow"/>
   </visual>
   <collision>
     <origin xyz="-0.4605 -0.0 -1.43" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_4_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_4.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
 
-<link name="Link_5_1">
+<link name="Link_5">
   <inertial>
     <origin xyz="0.006571796735715507 0.06969648244667848 0.0002014228323286016" rpy="0 0 0"/>
     <mass value="8.618702037141698"/>
@@ -118,19 +118,19 @@
   <visual>
     <origin xyz="-0.977 0.0685 -1.43" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_5_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_5.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="purple"/>
   </visual>
   <collision>
     <origin xyz="-0.977 0.0685 -1.43" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_5_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_5.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
 
-<link name="Link_6_1">
+<link name="Link_6">
   <inertial>
     <origin xyz="0.14017605132874045 0.00024756409542251774 -0.10306606341533109" rpy="0 0 0"/>
     <mass value="28.128315283674336"/>
@@ -139,14 +139,14 @@
   <visual>
     <origin xyz="-1.04 -0.0 -1.43" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_6_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_6.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="orange"/>
   </visual>
   <collision>
     <origin xyz="-1.04 -0.0 -1.43" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_6_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_6.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -154,47 +154,47 @@
 <joint name="Joint_1" type="revolute">
   <origin xyz="0.0 0.0 0.235" rpy="0 0 0"/>
   <parent link="base_link"/>
-  <child link="Link_1_1"/>
+  <child link="Link_1"/>
   <axis xyz="0.0 0.0 1.0"/>
   <limit upper="2.96706" lower="-2.96706" effort="100" velocity="100"/>
 </joint>
 
 <joint name="Joint_2" type="revolute">
   <origin xyz="0.16 -0.0769 0.235" rpy="0 0 0"/>
-  <parent link="Link_1_1"/>
-  <child link="Link_2_1"/>
+  <parent link="Link_1"/>
+  <child link="Link_2"/>
   <axis xyz="-0.0 -1.0 0.0"/>
   <limit upper="1.570796" lower="-2.70526" effort="100" velocity="100"/>
 </joint>
 
 <joint name="Joint_3" type="revolute">
   <origin xyz="0.0 -0.0295 0.76" rpy="0 0 0"/>
-  <parent link="Link_2_1"/>
-  <child link="Link_3_1"/>
+  <parent link="Link_2"/>
+  <child link="Link_3"/>
   <axis xyz="-0.0 -1.0 0.0"/>
   <limit upper="3.141593" lower="-1.396263" effort="100" velocity="100"/>
 </joint>
 
 <joint name="Joint_4" type="revolute">
   <origin xyz="0.3005 0.1064 0.2" rpy="0 0 0"/>
-  <parent link="Link_3_1"/>
-  <child link="Link_4_1"/>
+  <parent link="Link_3"/>
+  <child link="Link_4"/>
   <axis xyz="1.0 0.0 0.0"/>
   <limit upper="6.283185" lower="0.0" effort="100" velocity="100"/>
 </joint>
 
 <joint name="Joint_5" type="revolute">
   <origin xyz="0.5165 -0.0685 0.0" rpy="0 0 0"/>
-  <parent link="Link_4_1"/>
-  <child link="Link_5_1"/>
+  <parent link="Link_4"/>
+  <child link="Link_5"/>
   <axis xyz="0.0 -1.0 0.0"/>
   <limit upper="2.181662" lower="-2.181662" effort="100" velocity="100"/>
 </joint>
 
 <joint name="Joint_6" type="revolute">
   <origin xyz="0.063 0.0685 0.0" rpy="0 0 0"/>
-  <parent link="Link_5_1"/>
-  <child link="Link_6_1"/>
+  <parent link="Link_5"/>
+  <child link="Link_6"/>
   <axis xyz="1.0 -0.0 -0.0"/>
   <limit upper="6.283185" lower="0.0" effort="100" velocity="100"/>
 </joint>
