@@ -1,65 +1,62 @@
 <?xml version="1.0" ?>
 <robot name="yuilrobotics" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-<xacro:property name="color_red" value="Gazebo/Red" />
-<xacro:property name="color_green" value="Gazebo/Green" />
-<xacro:property name="color_blue" value="Gazebo/Blue" />
-<xacro:property name="color_yellow" value="Gazebo/Yellow" />
-<xacro:property name="color_purple" value="Gazebo/Purple" />
-<xacro:property name="color_orange" value="Gazebo/Orange" />
-<xacro:property name="color_silver" value="Gazebo/Silver" />
+  <xacro:property name="color_red" value="Gazebo/Red" />
+  <xacro:property name="color_green" value="Gazebo/Green" />
+  <xacro:property name="color_blue" value="Gazebo/Blue" />
+  <xacro:property name="color_yellow" value="Gazebo/Yellow" />
+  <xacro:property name="color_purple" value="Gazebo/Purple" />
+  <xacro:property name="color_orange" value="Gazebo/Orange" />
+  <xacro:property name="color_silver" value="Gazebo/Silver" />
 
-<gazebo>
-  <plugin name="control" filename="libgazebo_ros_control.so"/>
-</gazebo>
-<gazebo reference="base_link">
-  <material>${color_silver}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <self_collide>true</self_collide>
-  <gravity>true</gravity>
-</gazebo>
+  <gazebo reference="base_link">
+    <material>${color_silver}</material>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>true</self_collide>
+    <gravity>true</gravity>
+  </gazebo>
 
-<gazebo reference="Link_1">
-  <material>${color_red}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <self_collide>true</self_collide>
-</gazebo>
+  <gazebo reference="Link_1">
+    <material>${color_red}</material>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>true</self_collide>
+  </gazebo>
 
-<gazebo reference="Link_2">
-  <material>${color_green}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <self_collide>true</self_collide>
-</gazebo>
+  <gazebo reference="Link_2">
+    <material>${color_green}</material>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>true</self_collide>
+  </gazebo>
 
-<gazebo reference="Link_3">
-  <material>${color_blue}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <self_collide>true</self_collide>
-</gazebo>
+  <gazebo reference="Link_3">
+    <material>${color_blue}</material>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>true</self_collide>
+  </gazebo>
 
-<gazebo reference="Link_4">
-  <material>${color_yellow}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <self_collide>true</self_collide>
-</gazebo>
+  <gazebo reference="Link_4">
+    <material>${color_yellow}</material>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>true</self_collide>
+  </gazebo>
 
-<gazebo reference="Link_5">
-  <material>${color_purple}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <self_collide>true</self_collide>
-</gazebo>
+  <gazebo reference="Link_5">
+    <material>${color_purple}</material>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>true</self_collide>
+  </gazebo>
 
-<gazebo reference="Link_6">
-  <material>${color_orange}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <self_collide>true</self_collide>
-</gazebo>
+  <gazebo reference="Link_6">
+    <material>${color_orange}</material>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>true</self_collide>
+  </gazebo>
 
 </robot>
