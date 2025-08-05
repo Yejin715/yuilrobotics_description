@@ -1,202 +1,259 @@
 <?xml version="1.0" ?>
 <robot name="yuilrobotics" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<xacro:include filename="$(find yuilrobotics_description)/urdf/materials.xacro" />
-<xacro:include filename="$(find yuilrobotics_description)/urdf/yuilrobotics.trans" />
-<xacro:include filename="$(find yuilrobotics_description)/urdf/yuilrobotics.gazebo" />
-<link name="base_link">
-  <inertial>
-    <origin xyz="-0.01714347087398209 0.0007777876351822993 0.1308887923264434" rpy="0 0 0"/>
-    <mass value="97.64550480581015"/>
-    <inertia ixx="1.428756" iyy="1.812942" izz="2.190694" ixy="0.019464" iyz="0.00385" ixz="-0.072787"/>
-  </inertial>
-  <visual>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
+  <xacro:include filename="$(find yuilrobotics_description)/urdf/materials.xacro" />
+  <xacro:include filename="$(find yuilrobotics_description)/urdf/yuilrobotics.trans" />
+  <xacro:include filename="$(find yuilrobotics_description)/urdf/yuilrobotics.gazebo" />
+ 
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.01714347087398209 0.0007777876351822993 0.1308887923264434" rpy="0 0 0"/>
+      <mass value="97.64550480581015"/>
+      <inertia ixx="1.428756" iyy="1.812942" izz="2.190694" ixy="0.019464" iyz="0.00385" ixz="-0.072787"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find yuilrobotics_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find yuilrobotics_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
 
-<link name="Link_1">
-  <inertial>
-    <origin xyz="0.06317466133237605 0.035013511219838034 0.13725728484514843" rpy="0 0 0"/>
-    <mass value="111.66153088402919"/>
-    <inertia ixx="2.341514" iyy="2.318279" izz="2.327667" ixy="0.17489" iyz="-0.203995" ixz="-0.509045"/>
-  </inertial>
-  <visual>
-    <origin xyz="-0.0 -0.0 -0.235" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="red"/>
-  </visual>
-  <collision>
-    <origin xyz="-0.0 -0.0 -0.235" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
+  <link name="Link_1">
+    <inertial>
+      <origin xyz="0.06317466133237605 0.035013511219838034 0.13725728484514843" rpy="0 0 0"/>
+      <mass value="111.66153088402919"/>
+      <inertia ixx="2.341514" iyy="2.318279" izz="2.327667" ixy="0.17489" iyz="-0.203995" ixz="-0.509045"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.0 -0.0 -0.235" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.0 -0.0 -0.235" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
 
-<link name="Link_2">
-  <inertial>
-    <origin xyz="-0.01094377597300386 -0.07863714398543364 0.226439676818169" rpy="0 0 0"/>
-    <mass value="59.04937236680944"/>
-    <inertia ixx="5.466906" iyy="5.531308" izz="0.365838" ixy="-0.035549" iyz="0.361063" ixz="0.083704"/>
-  </inertial>
-  <visual>
-    <origin xyz="-0.16 0.0769 -0.47" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_2.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="green"/>
-  </visual>
-  <collision>
-    <origin xyz="-0.16 0.0769 -0.47" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_2.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
+  <link name="Link_2">
+    <inertial>
+      <origin xyz="-0.01094377597300386 -0.07863714398543364 0.226439676818169" rpy="0 0 0"/>
+      <mass value="59.04937236680944"/>
+      <inertia ixx="5.466906" iyy="5.531308" izz="0.365838" ixy="-0.035549" iyz="0.361063" ixz="0.083704"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.16 0.0769 -0.47" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="green"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.16 0.0769 -0.47" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
 
-<link name="Link_3">
-  <inertial>
-    <origin xyz="0.05496043944024606 0.10419544747934753 0.058371524809330166" rpy="0 0 0"/>
-    <mass value="64.002981497043"/>
-    <inertia ixx="1.015493" iyy="1.327467" izz="1.115149" ixy="0.030653" iyz="0.035181" ixz="-0.469571"/>
-  </inertial>
-  <visual>
-    <origin xyz="-0.16 0.1064 -1.23" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_3.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="blue"/>
-  </visual>
-  <collision>
-    <origin xyz="-0.16 0.1064 -1.23" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_3.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
+  <link name="Link_3">
+    <inertial>
+      <origin xyz="0.05496043944024606 0.10419544747934753 0.058371524809330166" rpy="0 0 0"/>
+      <mass value="64.002981497043"/>
+      <inertia ixx="1.015493" iyy="1.327467" izz="1.115149" ixy="0.030653" iyz="0.035181" ixz="-0.469571"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.16 0.1064 -1.23" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_3.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.16 0.1064 -1.23" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_3.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
 
-<link name="Link_4">
-  <inertial>
-    <origin xyz="0.26575828790948886 0.0012955340430784621 0.0009360053461771045" rpy="0 0 0"/>
-    <mass value="47.53442539952465"/>
-    <inertia ixx="0.245625" iyy="1.176996" izz="1.218782" ixy="0.001453" iyz="-0.000266" ixz="0.002266"/>
-  </inertial>
-  <visual>
-    <origin xyz="-0.4605 -0.0 -1.43" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_4.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="yellow"/>
-  </visual>
-  <collision>
-    <origin xyz="-0.4605 -0.0 -1.43" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_4.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
+  <link name="Link_4">
+    <inertial>
+      <origin xyz="0.26575828790948886 0.0012955340430784621 0.0009360053461771045" rpy="0 0 0"/>
+      <mass value="47.53442539952465"/>
+      <inertia ixx="0.245625" iyy="1.176996" izz="1.218782" ixy="0.001453" iyz="-0.000266" ixz="0.002266"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.4605 -0.0 -1.43" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_4.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="yellow"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.4605 -0.0 -1.43" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_4.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
 
-<link name="Link_5">
-  <inertial>
-    <origin xyz="0.006571796735715507 0.06969648244667848 0.0002014228323286016" rpy="0 0 0"/>
-    <mass value="8.618702037141698"/>
-    <inertia ixx="0.025024" iyy="0.018644" izz="0.02599" ixy="6.2e-05" iyz="-0.0" ixz="-3.3e-05"/>
-  </inertial>
-  <visual>
-    <origin xyz="-0.977 0.0685 -1.43" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_5.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="purple"/>
-  </visual>
-  <collision>
-    <origin xyz="-0.977 0.0685 -1.43" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_5.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
+  <link name="Link_5">
+    <inertial>
+      <origin xyz="0.006571796735715507 0.06969648244667848 0.0002014228323286016" rpy="0 0 0"/>
+      <mass value="8.618702037141698"/>
+      <inertia ixx="0.025024" iyy="0.018644" izz="0.02599" ixy="6.2e-05" iyz="-0.0" ixz="-3.3e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.977 0.0685 -1.43" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_5.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="purple"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.977 0.0685 -1.43" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_5.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
 
-<link name="Link_6">
-  <inertial>
-    <origin xyz="0.14017605132874045 0.00024756409542251774 -0.10306606341533109" rpy="0 0 0"/>
-    <mass value="28.128315283674336"/>
-    <inertia ixx="0.108784" iyy="0.205423" izz="0.16438" ixy="0.000863" iyz="-0.000718" ixz="0.046689"/>
-  </inertial>
-  <visual>
-    <origin xyz="-1.04 -0.0 -1.43" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_6.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="orange"/>
-  </visual>
-  <collision>
-    <origin xyz="-1.04 -0.0 -1.43" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_6.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
+  <link name="Link_6">
+    <inertial>
+      <origin xyz="0.14017605132874045 0.00024756409542251774 -0.10306606341533109" rpy="0 0 0"/>
+      <mass value="28.128315283674336"/>
+      <inertia ixx="0.108784" iyy="0.205423" izz="0.16438" ixy="0.000863" iyz="-0.000718" ixz="0.046689"/>
+    </inertial>
+    <visual>
+      <origin xyz="-1.04 -0.0 -1.43" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_6.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+    <collision>
+      <origin xyz="-1.04 -0.0 -1.43" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find yuilrobotics_description)/meshes/Link_6.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
 
-<joint name="Joint_1" type="revolute">
-  <origin xyz="0.0 0.0 0.235" rpy="0 0 0"/>
-  <parent link="base_link"/>
-  <child link="Link_1"/>
-  <axis xyz="0.0 0.0 1.0"/>
-  <limit upper="2.96706" lower="-2.96706" effort="100" velocity="100"/>
-</joint>
+  <joint name="Joint_1" type="revolute">
+    <origin xyz="0.0 0.0 0.235" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="Link_1"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit upper="2.96706" lower="-2.96706" effort="100" velocity="100"/>
+  </joint>
 
-<joint name="Joint_2" type="revolute">
-  <origin xyz="0.16 -0.0769 0.235" rpy="0 0 0"/>
-  <parent link="Link_1"/>
-  <child link="Link_2"/>
-  <axis xyz="-0.0 -1.0 0.0"/>
-  <limit upper="1.570796" lower="-2.70526" effort="100" velocity="100"/>
-</joint>
+  <joint name="Joint_2" type="revolute">
+    <origin xyz="0.16 -0.0769 0.235" rpy="0 0 0"/>
+    <parent link="Link_1"/>
+    <child link="Link_2"/>
+    <axis xyz="-0.0 -1.0 0.0"/>
+    <limit upper="1.570796" lower="-2.70526" effort="100" velocity="100"/>
+  </joint>
 
-<joint name="Joint_3" type="revolute">
-  <origin xyz="0.0 -0.0295 0.76" rpy="0 0 0"/>
-  <parent link="Link_2"/>
-  <child link="Link_3"/>
-  <axis xyz="-0.0 -1.0 0.0"/>
-  <limit upper="3.141593" lower="-1.396263" effort="100" velocity="100"/>
-</joint>
+  <joint name="Joint_3" type="revolute">
+    <origin xyz="0.0 -0.0295 0.76" rpy="0 0 0"/>
+    <parent link="Link_2"/>
+    <child link="Link_3"/>
+    <axis xyz="-0.0 -1.0 0.0"/>
+    <limit upper="3.141593" lower="-1.396263" effort="100" velocity="100"/>
+  </joint>
 
-<joint name="Joint_4" type="revolute">
-  <origin xyz="0.3005 0.1064 0.2" rpy="0 0 0"/>
-  <parent link="Link_3"/>
-  <child link="Link_4"/>
-  <axis xyz="1.0 0.0 0.0"/>
-  <limit upper="6.283185" lower="0.0" effort="100" velocity="100"/>
-</joint>
+  <joint name="Joint_4" type="revolute">
+    <origin xyz="0.3005 0.1064 0.2" rpy="0 0 0"/>
+    <parent link="Link_3"/>
+    <child link="Link_4"/>
+    <axis xyz="1.0 0.0 0.0"/>
+    <limit upper="6.283185" lower="0.0" effort="100" velocity="100"/>
+  </joint>
 
-<joint name="Joint_5" type="revolute">
-  <origin xyz="0.5165 -0.0685 0.0" rpy="0 0 0"/>
-  <parent link="Link_4"/>
-  <child link="Link_5"/>
-  <axis xyz="0.0 -1.0 0.0"/>
-  <limit upper="2.181662" lower="-2.181662" effort="100" velocity="100"/>
-</joint>
+  <joint name="Joint_5" type="revolute">
+    <origin xyz="0.5165 -0.0685 0.0" rpy="0 0 0"/>
+    <parent link="Link_4"/>
+    <child link="Link_5"/>
+    <axis xyz="0.0 -1.0 0.0"/>
+    <limit upper="2.181662" lower="-2.181662" effort="100" velocity="100"/>
+  </joint>
 
-<joint name="Joint_6" type="revolute">
-  <origin xyz="0.063 0.0685 0.0" rpy="0 0 0"/>
-  <parent link="Link_5"/>
-  <child link="Link_6"/>
-  <axis xyz="1.0 -0.0 -0.0"/>
-  <limit upper="6.283185" lower="0.0" effort="100" velocity="100"/>
-</joint>
+  <joint name="Joint_6" type="revolute">
+    <origin xyz="0.063 0.0685 0.0" rpy="0 0 0"/>
+    <parent link="Link_5"/>
+    <child link="Link_6"/>
+    <axis xyz="1.0 -0.0 -0.0"/>
+    <limit upper="6.283185" lower="0.0" effort="100" velocity="100"/>
+  </joint>
+
+  <ros2_control name="yuilrobotics_hw" type="system">
+    <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+
+    <joint name="Joint_1">
+      <command_interface name="position"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Joint_2">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Joint_3">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    
+    <joint name="Joint_4">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    
+    <joint name="Joint_5">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    
+    <joint name="Joint_6">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>    
+  </ros2_control>
+
+  <gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <parameters>$(find yuilrobotics_description)/config/controllers.yaml</parameters>
+    </plugin>
+  </gazebo>
 
 </robot>
