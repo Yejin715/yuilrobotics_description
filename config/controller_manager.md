@@ -5,7 +5,7 @@
     - URDF: PositionJointInterface 필요
     - 입력 타입: FollowJointTrajectory 액션
 
-    ✅ controllers.yaml
+    ✅ controller_manager.yaml
       controller_manager:
         ros__parameters:
           joint_state_broadcaster:
@@ -39,7 +39,7 @@
     - 기능: 여러 관절 위치를 Float64MultiArray로 제어
     - URDF: PositionJointInterface 필요
 
-    ✅ controllers.yaml
+    ✅ controller_manager.yaml
       controller_manager:
         ros__parameters:
           position_controller:
@@ -57,7 +57,8 @@
     - 타입: velocity_controllers/JointGroupVelocityController
     - 기능: 여러 관절의 속도를 배치 제어
     - URDF: VelocityJointInterface 필요
-    ✅ controllers.yaml
+
+    ✅ controller_manager.yaml
       controller_manager:
         ros__parameters:
           velocity_controller:
@@ -75,7 +76,8 @@
     - 타입: effort_controllers/JointGroupEffortController
     - 기능: 여러 관절의 토크(힘)를 제어
     - URDF: EffortJointInterface 필요
-    ✅ controllers.yaml
+
+    ✅ controller_manager.yaml
       controller_manager:
         ros__parameters:
           effort_controller:
@@ -95,7 +97,7 @@
     - 장점: interface 자유롭게 지정 가능 (position, velocity, effort)
     - URDF: 해당 인터페이스 설정 필요
 
-    ✅ controllers.yaml
+    ✅ controller_manager.yaml
       controller_manager:
         ros__parameters:
           joint3_position_controller:
