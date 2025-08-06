@@ -26,6 +26,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'controller_node = yuilrobotics_description.controller_node:main',
         ],
     },
 )
