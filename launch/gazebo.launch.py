@@ -15,7 +15,6 @@ def generate_launch_description():
     pkg_share = FindPackageShare('yuilrobotics_description').find('yuilrobotics_description')
     xacro_file = os.path.join(pkg_share, 'urdf', 'yuilrobotics.xacro')
     robot_description = xacro.process_file(xacro_file).toxml()
-    controllers_yaml = os.path.join(pkg_share, 'config', 'controllers.yaml')
 
     # 1) Gazebo (server+client)
     gazebo = IncludeLaunchDescription(
@@ -41,16 +40,16 @@ def generate_launch_description():
         output='screen'
     )
 
-    controller_node = Node(
+    parameter_manager = Node(
         package='yuilrobotics_description',
-        executable='controller_node',
-        name='controller_node',
+        executable='parameter_manager',
+        name='parameter_manager',
         output='screen',
         parameters=[
             PathJoinSubstitution([
                 FindPackageShare('yuilrobotics_description'),
                 'config',
-                'controller_node.yaml'
+                'parameter_manager.yaml'
             ])
         ]
     )
@@ -112,7 +111,7 @@ def generate_launch_description():
         gazebo,
         rsp,
         spawn,
-        controller_node,
+        parameter_manager,
         ev1,
         ev2,
         ev3,
