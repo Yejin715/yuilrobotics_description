@@ -1,0 +1,3 @@
+controller_node:
+  ros__parameters:
+    gain: 2.5
