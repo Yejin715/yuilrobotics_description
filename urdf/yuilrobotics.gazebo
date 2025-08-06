@@ -15,6 +15,7 @@
     <mu2>0.2</mu2>
     <self_collide>true</self_collide>
     <gravity>true</gravity>
+    <static>true</static>
   </gazebo>
 
   <gazebo reference="Link_1">
