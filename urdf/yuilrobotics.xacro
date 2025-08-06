@@ -262,7 +262,7 @@
 
   <gazebo>
     <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-      <parameters>$(find yuilrobotics_description)/config/controllers.yaml</parameters>
+      <parameters>$(find yuilrobotics_description)/config/controller_manager.yaml</parameters>
     </plugin>
   </gazebo>
 
