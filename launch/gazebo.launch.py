@@ -41,6 +41,20 @@ def generate_launch_description():
         output='screen'
     )
 
+    controller_node = Node(
+        package='yuilrobotics_description',
+        executable='controller_node',
+        name='controller_node',
+        output='screen',
+        parameters=[
+            PathJoinSubstitution([
+                FindPackageShare('yuilrobotics_description'),
+                'config',
+                'controller_node.yaml'
+            ])
+        ]
+    )
+
     # 4) load_controller
     load_jsb = ExecuteProcess(
         cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'joint_state_broadcaster'],
@@ -98,6 +112,7 @@ def generate_launch_description():
         gazebo,
         rsp,
         spawn,
+        controller_node,
         ev1,
         ev2,
         ev3,
