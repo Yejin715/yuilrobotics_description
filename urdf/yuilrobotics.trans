@@ -4,10 +4,10 @@
 <transmission name="Joint_1_tran">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="Joint_1">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
   </joint>
   <actuator name="Joint_1_actr">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
     <mechanicalReduction>1</mechanicalReduction>
   </actuator>
 </transmission>
@@ -15,10 +15,10 @@
 <transmission name="Joint_2_tran">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="Joint_2">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
   </joint>
   <actuator name="Joint_2_actr">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
     <mechanicalReduction>1</mechanicalReduction>
   </actuator>
 </transmission>
@@ -26,10 +26,10 @@
 <transmission name="Joint_3_tran">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="Joint_3">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
   </joint>
   <actuator name="Joint_3_actr">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
     <mechanicalReduction>1</mechanicalReduction>
   </actuator>
 </transmission>
@@ -37,10 +37,10 @@
 <transmission name="Joint_4_tran">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="Joint_4">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
   </joint>
   <actuator name="Joint_4_actr">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
     <mechanicalReduction>1</mechanicalReduction>
   </actuator>
 </transmission>
@@ -48,10 +48,10 @@
 <transmission name="Joint_5_tran">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="Joint_5">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
   </joint>
   <actuator name="Joint_5_actr">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
     <mechanicalReduction>1</mechanicalReduction>
   </actuator>
 </transmission>
@@ -59,10 +59,10 @@
 <transmission name="Joint_6_tran">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="Joint_6">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
   </joint>
   <actuator name="Joint_6_actr">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
     <mechanicalReduction>1</mechanicalReduction>
   </actuator>
 </transmission>
