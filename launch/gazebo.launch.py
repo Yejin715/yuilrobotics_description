@@ -41,22 +41,57 @@ def generate_launch_description():
         output='screen'
     )
 
-    # 4) 컨트롤러 로드 프로세스
-    load_joint_state = ExecuteProcess(
+    # 4) load_controller
+    load_jsb = ExecuteProcess(
         cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'joint_state_broadcaster'],
         output='screen'
     )
-    load_trajectory = ExecuteProcess(
-        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'joint_trajectory_controller'],
+    load_j1 = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'joint1_position_controller'],
+        output='screen'
+    )
+    load_j2 = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'joint2_position_controller'],
+        output='screen'
+    )
+    load_j3 = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'joint3_position_controller'],
+        output='screen'
+    )
+    load_j4 = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'joint4_position_controller'],
+        output='screen'
+    )
+    load_j5 = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'joint5_position_controller'],
+        output='screen'
+    )
+    load_j6 = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'joint6_position_controller'],
         output='screen'
     )
 
     # 5) 이벤트 핸들러로 순차 실행
     ev1 = RegisterEventHandler(
-        OnProcessExit(target_action=spawn, on_exit=[load_joint_state])
+        OnProcessExit(target_action=spawn, on_exit=[load_jsb])
     )
     ev2 = RegisterEventHandler(
-        OnProcessExit(target_action=load_joint_state, on_exit=[load_trajectory])
+        OnProcessExit(target_action=load_jsb,   on_exit=[load_j1])
+    )
+    ev3 = RegisterEventHandler(
+        OnProcessExit(target_action=load_j1,    on_exit=[load_j2])
+    )
+    ev4 = RegisterEventHandler(
+        OnProcessExit(target_action=load_j2,    on_exit=[load_j3])
+    )
+    ev5 = RegisterEventHandler(
+        OnProcessExit(target_action=load_j3,    on_exit=[load_j4])
+    )
+    ev6 = RegisterEventHandler(
+        OnProcessExit(target_action=load_j4,    on_exit=[load_j5])
+    )
+    ev7 = RegisterEventHandler(
+        OnProcessExit(target_action=load_j5,    on_exit=[load_j6])
     )
 
     return LaunchDescription([
@@ -65,4 +100,9 @@ def generate_launch_description():
         spawn,
         ev1,
         ev2,
+        ev3,
+        ev4,
+        ev5,
+        ev6,
+        ev7,
     ])
