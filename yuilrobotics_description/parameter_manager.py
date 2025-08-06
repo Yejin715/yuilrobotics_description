@@ -2,9 +2,9 @@ import rclpy
 from rclpy.node import Node
 from rcl_interfaces.msg import SetParametersResult, ParameterEvent
 
-class ControllerNode(Node):
+class ParameterManager(Node):
     def __init__(self):
-        super().__init__('controller_node')
+        super().__init__('parameter_manager')
 
         # 1) 파라미터 선언
         self.declare_parameter('gain', 1.0)
@@ -45,7 +45,7 @@ class ControllerNode(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    node = ControllerNode()
+    node = ParameterManager()
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
