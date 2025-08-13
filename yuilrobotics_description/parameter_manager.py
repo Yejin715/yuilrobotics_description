@@ -5,7 +5,6 @@ from rcl_interfaces.msg import SetParametersResult, ParameterDescriptor, Paramet
 from sensor_msgs.msg import JointState
 from rclpy.qos import QoSProfile
 from gazebo_msgs.srv import SetModelConfiguration
-
 import math
 
 class ParameterManager(Node):
@@ -15,7 +14,6 @@ class ParameterManager(Node):
         # 파라미터 선언
         self.declare_parameter(
             'joint_names',
-            # 기본값은 실제 조인트 이름으로 넣어두면 안전 (아래 참고)
             ['Joint_1','Joint_2','Joint_3','Joint_4','Joint_5','Joint_6'],
             ParameterDescriptor(type=ParameterType.PARAMETER_STRING_ARRAY)
         )
@@ -40,14 +38,32 @@ class ParameterManager(Node):
             ParameterDescriptor(type=ParameterType.PARAMETER_DOUBLE)
         )
 
-        # 파라미터 로드 (이제 .value 로 안전하게)
+        # 파라미터 로드
         self.joint_names = list(self.get_parameter('joint_names').value)
         self.offsets     = list(self.get_parameter('joint_offsets').value)
         self.pub_topic   = self.get_parameter('publish_topic').value
         self.reseed      = bool(self.get_parameter('reseed_on_offset_change').value)
         self.jump_threshold_deg = float(self.get_parameter('jump_threshold_deg').value)
+        
+        # 길이 보정(배열 길이와 조인트 수 일치)
+        if len(self.offsets) != len(self.joint_names):
+            self.offsets = (self.offsets + [0.0] * len(self.joint_names))[:len(self.joint_names)]
+
         self.name_to_idx = {n: i for i, n in enumerate(self.joint_names)}
         self._last_js = None
+
+        # 조인트별 개별 파라미터 선언
+        for i, name in enumerate(self.joint_names):
+            self.declare_parameter(
+                f'offset.{name}',
+                float(self.offsets[i]),
+                ParameterDescriptor(type=ParameterType.PARAMETER_DOUBLE)
+            )
+
+        # 동기화 제어 플래그/타이머 (배열 ↔ 개별 동기화)
+        self._suppress_callback = False
+        self._pending_sync = False
+        self._sync_timer = self.create_timer(0.2, self._sync_params)  # 5Hz
 
         # 통신
         qos = QoSProfile(depth=50)
@@ -79,38 +95,72 @@ class ParameterManager(Node):
 
         self.pub.publish(corr)
 
+    # 배열(joint_offsets)와 개별(offset.<name>)을 모두 지원
     def _on_set(self, params):
-        new_offsets = None
+        if self._suppress_callback:
+            return SetParametersResult(successful=True)
+
+        old = list(self.offsets)
+        changed = False
+        new_offsets_from_array = None
+        
         for p in params:
+            # 1) joint_offsets 전체 배열 갱신
             if p.name == 'joint_offsets':
-                # 타입 강제 검사
                 if p.type_ != Parameter.Type.DOUBLE_ARRAY:
-                    return SetParametersResult(
-                        successful=False,
-                        reason='joint_offsets must be a double[]'
-                    )
-                new_offsets = list(p.value)  # p.value는 array('d', [...]) → list 변환
+                    return SetParametersResult(successful=False, reason='joint_offsets must be double[]')
+                vals = list(p.value)
+                if len(vals) != len(self.joint_names):
+                    return SetParametersResult(successful=False, reason='joint_offsets length mismatch')
+                new_offsets_from_array = vals
+                changed = True
 
-        if new_offsets is not None:
-            if len(new_offsets) != len(self.joint_names):
-                return SetParametersResult(
-                    successful=False,
-                    reason='joint_offsets length mismatch'
-                )
+            # 2) 개별 갱신: offset.<JointName>
+            elif p.name.startswith('offset.'):
+                jname = p.name.split('offset.', 1)[1]
+                if jname in self.name_to_idx:
+                    if p.type_ != Parameter.Type.DOUBLE:
+                        return SetParametersResult(successful=False, reason=f'{p.name} must be double')
+                    idx = self.name_to_idx[jname]
+                    self.offsets[idx] = float(p.value)
+                    changed = True
+                else:
+                    return SetParametersResult(successful=False, reason=f'Unknown joint name: {jname}')
 
-            # (선택) 점프 크기 계산 후 reseed
+        if new_offsets_from_array is not None:
+            self.offsets = new_offsets_from_array
+
+        if changed:
             max_jump_deg = 0.0
-            if self.offsets:
-                import math
-                max_jump_deg = max(abs((n - o) * 180.0 / math.pi) for n, o in zip(new_offsets, self.offsets))
+            if old and len(old) == len(self.offsets):
+                max_jump_deg = max(abs((n - o) * 180.0 / math.pi) for n, o in zip(self.offsets, old))
 
-            self.offsets = new_offsets
             self.get_logger().info(f'offsets updated -> {self.offsets} (max Δ≈{max_jump_deg:.2f} deg)')
 
             if self.reseed and max_jump_deg > self.jump_threshold_deg:
                 self._reseed_pose()
 
+            self._pending_sync = True
+
         return SetParametersResult(successful=True)
+
+    # 주기적으로 배열/개별 파라미터를 서로 동기화(무한 루프 방지 플래그 포함)
+    def _sync_params(self):
+        if not self._pending_sync:
+            return
+        self._pending_sync = False
+
+        self._suppress_callback = True
+        try:
+            params = []
+            # 배열 업데이트
+            params.append(Parameter('joint_offsets', Parameter.Type.DOUBLE_ARRAY, list(self.offsets)))
+            # 개별 업데이트
+            for i, name in enumerate(self.joint_names):
+                params.append(Parameter(f'offset.{name}', Parameter.Type.DOUBLE, float(self.offsets[i])))
+            self.set_parameters(params)
+        finally:
+            self._suppress_callback = False
 
     def _reseed_pose(self):
         if self._last_js is None:
