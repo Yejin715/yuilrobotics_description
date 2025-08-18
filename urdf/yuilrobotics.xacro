@@ -4,7 +4,20 @@
   <xacro:include filename="$(find yuilrobotics_description)/urdf/materials.xacro" />
   <xacro:include filename="$(find yuilrobotics_description)/urdf/yuilrobotics.trans" />
   <xacro:include filename="$(find yuilrobotics_description)/urdf/yuilrobotics.gazebo" />
- 
+  <!-- === Length / offset parameters (edit freely) === -->
+  <xacro:arg name="L1x"  default="0.16"/>
+  <xacro:arg name="L1y"  default="-0.0769"/>
+  <xacro:arg name="L1z"  default="0.235"/>
+  <xacro:arg name="L2y" default="0.0295"/>
+  <xacro:arg name="L2z" default="0.76"/>
+  <xacro:arg name="L3x" default="0.3005"/>
+  <xacro:arg name="L3y" default="0.1064"/>
+  <xacro:arg name="L3z" default="0.2"/>
+  <xacro:arg name="L4x" default="0.5165"/>
+  <xacro:arg name="L4y" default="-0.0685"/>
+  <xacro:arg name="L5x" default="0.063"/>
+  <xacro:arg name="L5y" default="0.0685"/>
+
   <link name="world"/>
 
   <joint name="base" type="fixed">
@@ -171,7 +184,7 @@
   </joint>
 
   <joint name="Joint_2" type="revolute">
-    <origin xyz="0.16 -0.0769 0.235" rpy="0 0 0"/>
+    <origin xyz="$(arg L1x) $(arg L1y) $(arg L1z)" rpy="0 0 0"/>
     <parent link="Link_1"/>
     <child link="Link_2"/>
     <axis xyz="-0.0 -1.0 0.0"/>
@@ -179,7 +192,7 @@
   </joint>
 
   <joint name="Joint_3" type="revolute">
-    <origin xyz="0.0 -0.0295 0.76" rpy="0 0 0"/>
+    <origin xyz="0.0 $(arg L2y) $(arg L2z)" rpy="0 0 0"/>
     <parent link="Link_2"/>
     <child link="Link_3"/>
     <axis xyz="-0.0 -1.0 0.0"/>
@@ -187,7 +200,7 @@
   </joint>
 
   <joint name="Joint_4" type="revolute">
-    <origin xyz="0.3005 0.1064 0.2" rpy="0 0 0"/>
+    <origin xyz="$(arg L3x) $(arg L3y) $(arg L3z)" rpy="0 0 0"/>
     <parent link="Link_3"/>
     <child link="Link_4"/>
     <axis xyz="1.0 0.0 0.0"/>
@@ -195,7 +208,7 @@
   </joint>
 
   <joint name="Joint_5" type="revolute">
-    <origin xyz="0.5165 -0.0685 0.0" rpy="0 0 0"/>
+    <origin xyz="$(arg L4x) $(arg L4y) 0.0" rpy="0 0 0"/>
     <parent link="Link_4"/>
     <child link="Link_5"/>
     <axis xyz="0.0 -1.0 0.0"/>
@@ -203,7 +216,7 @@
   </joint>
 
   <joint name="Joint_6" type="revolute">
-    <origin xyz="0.063 0.0685 0.0" rpy="0 0 0"/>
+    <origin xyz="$(arg L5x) $(arg L5y) 0.0" rpy="0 0 0"/>
     <parent link="Link_5"/>
     <child link="Link_6"/>
     <axis xyz="1.0 -0.0 -0.0"/>
